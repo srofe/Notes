@@ -16,7 +16,11 @@ struct ContentView: View {
             HStack(alignment: .center, spacing: 6) {
                 TextField("Add New Note", text: $text)
                 Button {
-                    // Action
+                    guard text.isEmpty == false else { return }
+                    let note = Note(id: UUID(), text: text)
+                    notes.append(note)
+                    text = ""
+                    save()
                 } label: {
                     Image(systemName: "plus.circle")
                         .font(.system(size: 42, weight: .semibold))
@@ -26,8 +30,13 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
             }
             Spacer()
+            Text("\(notes.count)")
         }
         .navigationTitle("Notes")
+    }
+
+    func save() {
+        dump(notes)
     }
 }
 
