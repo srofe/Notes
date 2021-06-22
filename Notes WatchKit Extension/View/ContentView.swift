@@ -21,6 +21,7 @@ struct ContentView: View {
                     Image(systemName: "plus")
                 }
                 .fixedSize()
+                .buttonStyle(BorderedButtonStyle(tint: .accentColor))
             }
         }
         .navigationTitle("Notes")
