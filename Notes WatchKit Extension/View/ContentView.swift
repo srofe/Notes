@@ -18,11 +18,14 @@ struct ContentView: View {
                 Button {
                     // Action
                 } label: {
-                    Image(systemName: "plus")
+                    Image(systemName: "plus.circle")
+                        .font(.system(size: 42, weight: .semibold))
                 }
                 .fixedSize()
-                .buttonStyle(BorderedButtonStyle(tint: .accentColor))
+                .buttonStyle(PlainButtonStyle())
+                .foregroundColor(.accentColor)
             }
+            Spacer()
         }
         .navigationTitle("Notes")
     }
