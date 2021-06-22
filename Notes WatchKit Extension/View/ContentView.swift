@@ -45,6 +45,16 @@ struct ContentView: View {
         }
     }
 
+    func load() {
+        do {
+            let url = getDocumentDirectory().appendingPathComponent("notes")
+            let data = try Data(contentsOf: url)
+            notes = try JSONDecoder().decode([Note].self, from: data)
+        } catch {
+            // Do nothing
+        }
+    }
+
     func getDocumentDirectory() -> URL {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return path[0]
