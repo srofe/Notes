@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var notes: [Note] = [Note]()
+    @State private var text: String = ""
+
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        VStack {
+            Text("Hello, World!")
+                .padding()
+        }
+        .navigationTitle("Notes")
     }
 }
 
