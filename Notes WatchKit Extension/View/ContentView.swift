@@ -13,8 +13,15 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Hello, World!")
-                .padding()
+            HStack(alignment: .center, spacing: 6) {
+                TextField("Add New Note", text: $text)
+                Button {
+                    // Action
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .fixedSize()
+            }
         }
         .navigationTitle("Notes")
     }
