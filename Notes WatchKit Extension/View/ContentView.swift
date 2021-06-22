@@ -33,10 +33,36 @@ struct ContentView: View {
             Text("\(notes.count)")
         }
         .navigationTitle("Notes")
+        .onAppear(perform: {
+            load()
+        })
     }
 
     func save() {
-        dump(notes)
+        do {
+            let data = try JSONEncoder().encode(notes)
+            let url = getDocumentDirectory().appendingPathComponent("notes")
+            try data.write(to: url)
+        } catch {
+            print("Saving data has failed!")
+        }
+    }
+
+    func load() {
+        DispatchQueue.main.async {
+            do {
+                let url = getDocumentDirectory().appendingPathComponent("notes")
+                let data = try Data(contentsOf: url)
+                notes = try JSONDecoder().decode([Note].self, from: data)
+            } catch {
+                // Do nothing
+            }
+        }
+    }
+
+    func getDocumentDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
     }
 }
 
