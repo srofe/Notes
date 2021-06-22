@@ -36,7 +36,18 @@ struct ContentView: View {
     }
 
     func save() {
-        dump(notes)
+        do {
+            let data = try JSONEncoder().encode(notes)
+            let url = getDocumentDirectory().appendingPathComponent("notes")
+            try data.write(to: url)
+        } catch {
+            print("Saving data has failed!")
+        }
+    }
+
+    func getDocumentDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
     }
 }
 

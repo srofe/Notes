@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Note: Identifiable {
+struct Note: Identifiable, Encodable {
     let id: UUID
     let text: String
 }
