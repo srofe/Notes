@@ -41,6 +41,7 @@ struct ContentView: View {
                             .padding(.leading, 5)
                     }
                 }
+                .onDelete(perform: delete)
             }
         }
         .navigationTitle("Notes")
@@ -68,6 +69,13 @@ struct ContentView: View {
             } catch {
                 // Do nothing
             }
+        }
+    }
+
+    func delete(offsets: IndexSet) {
+        withAnimation {
+            notes.remove(atOffsets: offsets)
+            save()
         }
     }
 
