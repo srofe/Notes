@@ -33,6 +33,9 @@ struct ContentView: View {
             Text("\(notes.count)")
         }
         .navigationTitle("Notes")
+        .onAppear(perform: {
+            load()
+        })
     }
 
     func save() {
@@ -46,12 +49,14 @@ struct ContentView: View {
     }
 
     func load() {
-        do {
-            let url = getDocumentDirectory().appendingPathComponent("notes")
-            let data = try Data(contentsOf: url)
-            notes = try JSONDecoder().decode([Note].self, from: data)
-        } catch {
-            // Do nothing
+        DispatchQueue.main.async {
+            do {
+                let url = getDocumentDirectory().appendingPathComponent("notes")
+                let data = try Data(contentsOf: url)
+                notes = try JSONDecoder().decode([Note].self, from: data)
+            } catch {
+                // Do nothing
+            }
         }
     }
 
