@@ -22,7 +22,14 @@ struct DetailView: View {
                     .frame(height: 1)
             }
             .foregroundColor(.accentColor)
-            Text("Content")
+            Spacer()
+            ScrollView(.vertical) {
+                Text(note.text)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+            }
+            Spacer()
             Text("Footer")
         }
         .padding(3)
@@ -31,6 +38,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(note: Note(id: UUID(), text: "Hell, World!"), count: 5, index: 1)
+        DetailView(note: Note(id: UUID(), text: "Hello, World!"), count: 5, index: 1)
     }
 }
