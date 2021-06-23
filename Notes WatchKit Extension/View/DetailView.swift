@@ -30,7 +30,16 @@ struct DetailView: View {
                     .multilineTextAlignment(.center)
             }
             Spacer()
-            Text("Footer")
+            HStack(alignment: .center) {
+                Image(systemName: "gear")
+                    .imageScale(.large)
+                Spacer()
+                Text("\(count) / \(index + 1)")
+                Spacer()
+                Image(systemName: "info.circle")
+                    .imageScale(.large)
+            }
+            .foregroundColor(.secondary)
         }
         .padding(3)
     }
