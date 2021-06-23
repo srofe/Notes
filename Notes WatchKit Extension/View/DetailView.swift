@@ -14,7 +14,14 @@ struct DetailView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 3) {
-            Text("Header")
+            HStack {
+                Capsule()
+                    .frame(height: 1)
+                Image(systemName: "note.text")
+                Capsule()
+                    .frame(height: 1)
+            }
+            .foregroundColor(.accentColor)
             Text("Content")
             Text("Footer")
         }
