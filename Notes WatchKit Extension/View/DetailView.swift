@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct DetailView: View {
+    @State private var isCreditsPresented: Bool = false
     let note: Note
     let count: Int
     let index: Int
 
     var body: some View {
         VStack(alignment: .center, spacing: 3) {
-            HStack {
-                Capsule()
-                    .frame(height: 1)
-                Image(systemName: "note.text")
-                Capsule()
-                    .frame(height: 1)
-            }
-            .foregroundColor(.accentColor)
+            HeaderView()
             Spacer()
             ScrollView(.vertical) {
                 Text(note.text)
@@ -38,6 +32,12 @@ struct DetailView: View {
                 Spacer()
                 Image(systemName: "info.circle")
                     .imageScale(.large)
+                    .onTapGesture {
+                        isCreditsPresented.toggle()
+                    }
+                    .sheet(isPresented: $isCreditsPresented) {
+                        CreditsView()
+                    }
             }
             .foregroundColor(.secondary)
         }
