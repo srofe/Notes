@@ -14,7 +14,7 @@
 		F49ADC4C268188B90096CA41 /* Notes WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F49ADC4B268188B90096CA41 /* Notes WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F49ADC51268188BC0096CA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49ADC50268188BC0096CA41 /* Assets.xcassets */; };
 		F49ADC57268188BC0096CA41 /* Notes WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F49ADC56268188BC0096CA41 /* Notes WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F49ADC5C268188BC0096CA41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ADC5B268188BC0096CA41 /* ContentView.swift */; };
+		F49ADC5C268188BC0096CA41 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ADC5B268188BC0096CA41 /* NotesView.swift */; };
 		F49ADC5E268188BC0096CA41 /* NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ADC5D268188BC0096CA41 /* NotesApp.swift */; };
 		F49ADC60268188BC0096CA41 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ADC5F268188BC0096CA41 /* ComplicationController.swift */; };
 		F49ADC62268188BD0096CA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49ADC61268188BD0096CA41 /* Assets.xcassets */; };
@@ -73,7 +73,7 @@
 		F49ADC4B268188B90096CA41 /* Notes WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49ADC50268188BC0096CA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49ADC56268188BC0096CA41 /* Notes WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notes WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F49ADC5B268188BC0096CA41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F49ADC5B268188BC0096CA41 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		F49ADC5D268188BC0096CA41 /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
 		F49ADC5F268188BC0096CA41 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		F49ADC61268188BD0096CA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		F49ADC7426818B490096CA41 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F49ADC5B268188BC0096CA41 /* ContentView.swift */,
+				F49ADC5B268188BC0096CA41 /* NotesView.swift */,
 				F4957413268EBF93001308AB /* SettingsView.swift */,
 				F45C8BC9268309EB008C4247 /* DetailView.swift */,
 				F495740F268EB644001308AB /* CreditsView.swift */,
@@ -289,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49ADC5C268188BC0096CA41 /* ContentView.swift in Sources */,
+				F49ADC5C268188BC0096CA41 /* NotesView.swift in Sources */,
 				F4957414268EBF93001308AB /* SettingsView.swift in Sources */,
 				F49ADC5E268188BC0096CA41 /* NotesApp.swift in Sources */,
 				F49ADC60268188BC0096CA41 /* ComplicationController.swift in Sources */,
