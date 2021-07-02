@@ -62,14 +62,16 @@ struct NotesView: View {
     }
 
     private var notesListPlaceholder: some View {
-        Spacer()
-        Image(systemName: "note.text")
-            .resizable()
-            .scaledToFit()
-            .foregroundColor(.gray)
-            .opacity(0.25)
-            .padding(25)
-        Spacer()
+        Group {
+            Spacer()
+            Image(systemName: "note.text")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.gray)
+                .opacity(0.25)
+                .padding(25)
+            Spacer()
+        }
     }
 
     func save() {
