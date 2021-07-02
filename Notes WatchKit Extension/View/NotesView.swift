@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  NotesView.swift
 //  Notes WatchKit Extension
 //
 //  Created by Simon Rofe on 22/6/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct NotesView: View {
     @AppStorage("lineCount") var lineCount: Int = 1
     @State private var notes: [Note] = [Note]()
     @State private var text: String = ""
@@ -101,6 +101,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NotesView()
     }
 }
