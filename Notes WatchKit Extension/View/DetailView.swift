@@ -25,30 +25,34 @@ struct DetailView: View {
                     .multilineTextAlignment(.center)
             }
             Spacer()
-            HStack(alignment: .center) {
-                Image(systemName: "gear")
-                    .imageScale(.large)
-                    .onTapGesture {
-                        isSettingsPresented.toggle()
-                    }
-                    .sheet(isPresented: $isSettingsPresented) {
-                        SettingsView()
-                    }
-                Spacer()
-                Text("\(count) / \(index + 1)")
-                Spacer()
-                Image(systemName: "info.circle")
-                    .imageScale(.large)
-                    .onTapGesture {
-                        isCreditsPresented.toggle()
-                    }
-                    .sheet(isPresented: $isCreditsPresented) {
-                        CreditsView()
-                    }
-            }
-            .foregroundColor(.secondary)
+            footer
         }
         .padding(3)
+    }
+
+    var footer: some View {
+        HStack(alignment: .center) {
+            Image(systemName: "gear")
+                .imageScale(.large)
+                .onTapGesture {
+                    isSettingsPresented.toggle()
+                }
+                .sheet(isPresented: $isSettingsPresented) {
+                    SettingsView()
+                }
+            Spacer()
+            Text("\(count) / \(index + 1)")
+            Spacer()
+            Image(systemName: "info.circle")
+                .imageScale(.large)
+                .onTapGesture {
+                    isCreditsPresented.toggle()
+                }
+                .sheet(isPresented: $isCreditsPresented) {
+                    CreditsView()
+                }
+        }
+        .foregroundColor(.secondary)
     }
 }
 
