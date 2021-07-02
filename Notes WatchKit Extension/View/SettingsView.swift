@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @AppStorage("lineCount") var lineCount: Int = 1
+
     var body: some View {
         VStack(spacing: 8) {
             HeaderView(title: "Settings")
+            Text("Lines \(lineCount)".uppercased())
+                .fontWeight(.bold)
         }
     }
 }
