@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
+    @State private var isCreditsPresented: Bool = false
     let note: Note
     let count: Int
     let index: Int
@@ -31,6 +32,12 @@ struct DetailView: View {
                 Spacer()
                 Image(systemName: "info.circle")
                     .imageScale(.large)
+                    .onTapGesture {
+                        isCreditsPresented.toggle()
+                    }
+                    .sheet(isPresented: $isCreditsPresented) {
+                        CreditsView()
+                    }
             }
             .foregroundColor(.secondary)
         }
