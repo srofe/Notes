@@ -10,7 +10,14 @@ import SwiftUI
 struct CreditsView: View {
     var body: some View {
         VStack(spacing: 3) {
-            
+            HeaderView(title: "Credits")
+            Text("Simon Rofe")
+                .foregroundColor(.primary)
+                .fontWeight(.bold)
+            Text("Develoer")
+                .font(.footnote)
+                .foregroundColor(.secondary)
+                .fontWeight(.light)
         }
     }
 }
