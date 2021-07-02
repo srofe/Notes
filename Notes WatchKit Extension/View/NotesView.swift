@@ -14,22 +14,7 @@ struct NotesView: View {
 
     var body: some View {
         VStack {
-            HStack(alignment: .center, spacing: 6) {
-                TextField("Add New Note", text: $text)
-                Button {
-                    guard text.isEmpty == false else { return }
-                    let note = Note(id: UUID(), text: text)
-                    notes.append(note)
-                    text = ""
-                    save()
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .font(.system(size: 42, weight: .semibold))
-                }
-                .fixedSize()
-                .buttonStyle(PlainButtonStyle())
-                .foregroundColor(.accentColor)
-            }
+            newNote
             Spacer()
             if notes.count >= 1 {
                 notesList
@@ -41,6 +26,25 @@ struct NotesView: View {
         .onAppear(perform: {
             load()
         })
+    }
+
+    private var newNote: some View {
+        HStack(alignment: .center, spacing: 6) {
+            TextField("Add New Note", text: $text)
+            Button {
+                guard text.isEmpty == false else { return }
+                let note = Note(id: UUID(), text: text)
+                notes.append(note)
+                text = ""
+                save()
+            } label: {
+                Image(systemName: "plus.circle")
+                    .font(.system(size: 42, weight: .semibold))
+            }
+            .fixedSize()
+            .buttonStyle(PlainButtonStyle())
+            .foregroundColor(.accentColor)
+        }
     }
 
     private var notesList: some View {
