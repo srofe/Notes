@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @State private var isCreditsPresented: Bool = false
+    @State private var isSettingsPresented: Bool = false
     let note: Note
     let count: Int
     let index: Int
@@ -27,6 +28,12 @@ struct DetailView: View {
             HStack(alignment: .center) {
                 Image(systemName: "gear")
                     .imageScale(.large)
+                    .onTapGesture {
+                        isSettingsPresented.toggle()
+                    }
+                    .sheet(isPresented: $isSettingsPresented) {
+                        SettingsView()
+                    }
                 Spacer()
                 Text("\(count) / \(index + 1)")
                 Spacer()
