@@ -34,14 +34,7 @@ struct NotesView: View {
             if notes.count >= 1 {
                 notesList
             } else {
-                Spacer()
-                Image(systemName: "note.text")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.gray)
-                    .opacity(0.25)
-                    .padding(25)
-                Spacer()
+                notesListPlaceholder
             }
         }
         .navigationTitle("Notes")
@@ -66,6 +59,17 @@ struct NotesView: View {
             }
             .onDelete(perform: delete)
         }
+    }
+
+    private var notesListPlaceholder: some View {
+        Spacer()
+        Image(systemName: "note.text")
+            .resizable()
+            .scaledToFit()
+            .foregroundColor(.gray)
+            .opacity(0.25)
+            .padding(25)
+        Spacer()
     }
 
     func save() {
