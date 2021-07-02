@@ -18,16 +18,20 @@ struct DetailView: View {
         VStack(alignment: .center, spacing: 3) {
             HeaderView()
             Spacer()
-            ScrollView(.vertical) {
-                Text(note.text)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-            }
+            noteBody
             Spacer()
             footer
         }
         .padding(3)
+    }
+
+    var noteBody: some View {
+        ScrollView(.vertical) {
+            Text(note.text)
+                .font(.title3)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+        }
     }
 
     var footer: some View {
