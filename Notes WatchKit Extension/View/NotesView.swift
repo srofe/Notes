@@ -32,21 +32,7 @@ struct NotesView: View {
             }
             Spacer()
             if notes.count >= 1 {
-                List {
-                    ForEach(0 ..< notes.count, id: \.self) { i in
-                        NavigationLink(destination: DetailView(note: notes[i], count: notes.count, index: i)) {
-                            HStack {
-                                Capsule()
-                                    .frame(width: 4)
-                                    .foregroundColor(.accentColor)
-                                Text(notes[i].text)
-                                    .lineLimit(lineCount)
-                                    .padding(.leading, 5)
-                            }
-                        }
-                    }
-                    .onDelete(perform: delete)
-                }
+                notesList
             } else {
                 Spacer()
                 Image(systemName: "note.text")
@@ -62,6 +48,24 @@ struct NotesView: View {
         .onAppear(perform: {
             load()
         })
+    }
+
+    private var notesList: some View {
+        List {
+            ForEach(0 ..< notes.count, id: \.self) { i in
+                NavigationLink(destination: DetailView(note: notes[i], count: notes.count, index: i)) {
+                    HStack {
+                        Capsule()
+                            .frame(width: 4)
+                            .foregroundColor(.accentColor)
+                        Text(notes[i].text)
+                            .lineLimit(lineCount)
+                            .padding(.leading, 5)
+                    }
+                }
+            }
+            .onDelete(perform: delete)
+        }
     }
 
     func save() {
